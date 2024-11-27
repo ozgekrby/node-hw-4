@@ -19,11 +19,12 @@ fs.readFile("employees.json", "utf8", (err, data) => {
       fs.readFile("employees.json", "utf8", (err, data) => {
         if (err) console.log(err);
         console.log(data);
+        fs.unlink("employees.json", (err) => {
+            if (err) console.log(err);
+            console.log("File successfully deleted.");
+          });
       });
-      fs.unlink("employees.json", (err) => {
-        if (err) console.log(err);
-        console.log("File successfully deleted.");
-      });
+      
     }
   });
 });
